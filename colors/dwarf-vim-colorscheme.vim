@@ -64,17 +64,21 @@ let s:head_a         = s:dark_blue
 let s:head_b         = s:blue
 let s:head_c         = s:dark_cyan
 
-" Using termcolor = 256
-let l:ctermfg = (has_key(a:style, "fg") ? a:style.fg.cterm : "NONE")
-let l:ctermbg = (has_key(a:style, "bg") ? a:style.bg.cterm : "NONE")
-  execute "highlight" a:group
-    \ "guifg="   (has_key(a:style, "fg")    ? a:style.fg.gui   : "NONE")
-    \ "guibg="   (has_key(a:style, "bg")    ? a:style.bg.gui   : "NONE")
-    \ "guisp="   (has_key(a:style, "sp")    ? a:style.sp.gui   : "NONE")
-    \ "gui="     (has_key(a:style, "gui")   ? a:style.gui      : "NONE")
-    \ "ctermfg=" . l:ctermfg
-    \ "ctermbg=" . l:ctermbg
-    \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "NONE")
+" shamelessly stolen from hemisu: https://github.com/noahfrederick/vim-hemisu/
+function! s:h(group, style)
+    " Not all terminals support italics properly. If yours does, opt-in.
+    unlet a:style.cterm
+    " Using termcolor = 256
+    let l:ctermfg = (has_key(a:style, "fg") ? a:style.fg.cterm : "NONE")
+    let l:ctermbg = (has_key(a:style, "bg") ? a:style.bg.cterm : "NONE")
+    execute "highlight" a:group
+      \ "guifg="   (has_key(a:style, "fg")    ? a:style.fg.gui   : "NONE")
+      \ "guibg="   (has_key(a:style, "bg")    ? a:style.bg.gui   : "NONE")
+      \ "guisp="   (has_key(a:style, "sp")    ? a:style.sp.gui   : "NONE")
+      \ "gui="     (has_key(a:style, "gui")   ? a:style.gui      : "NONE")
+      \ "ctermfg=" . l:ctermfg
+      \ "ctermbg=" . l:ctermbg
+      \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "NONE")
 endfunction
 
 " common groups ================================================================
@@ -163,15 +167,15 @@ call s:h("DiffText",      {"fg": s:dark_blue})
 call s:h("SignColumn",    {"fg": s:green})
 
 if has("gui_running")
-  call s:h("SpellBad",    {"gui": "underline", "sp": s:dark_red})
-  call s:h("SpellCap",    {"gui": "underline", "sp": s:green})
-  call s:h("SpellRare",   {"gui": "underline", "sp": s:red})
-  call s:h("SpellLocal",  {"gui": "underline", "sp": s:dark_green})
+    call s:h("SpellBad",    {"gui": "underline", "sp": s:dark_red})
+    call s:h("SpellCap",    {"gui": "underline", "sp": s:green})
+    call s:h("SpellRare",   {"gui": "underline", "sp": s:red})
+    call s:h("SpellLocal",  {"gui": "underline", "sp": s:dark_green})
 else
-  call s:h("SpellBad",    {"cterm": "underline", "fg": s:dark_red})
-  call s:h("SpellCap",    {"cterm": "underline", "fg": s:green})
-  call s:h("SpellRare",   {"cterm": "underline", "fg": s:red})
-  call s:h("SpellLocal",  {"cterm": "underline", "fg": s:dark_green})
+    call s:h("SpellBad",    {"cterm": "underline", "fg": s:dark_red})
+    call s:h("SpellCap",    {"cterm": "underline", "fg": s:green})
+    call s:h("SpellRare",   {"cterm": "underline", "fg": s:red})
+    call s:h("SpellLocal",  {"cterm": "underline", "fg": s:dark_green})
 endif
 call s:h("Pmenu",         {"fg": s:norm, "bg": s:bg_subtle})
 call s:h("PmenuSel",      {"fg": s:norm, "bg": s:bg_dark})
@@ -294,22 +298,3 @@ call s:h("GitGutterAdd",{"fg": s:green, "bg": s:bg_subtle})
 call s:h("GitGutterDelete",{"fg": s:red, "bg": s:bg_subtle})
 call s:h("GitGutterChange",{"fg": s:yellow, "bg": s:bg_subtle})
 call s:h("GitGutterChangeDelete",{"fg": s:red, "bg": s:bg_subtle})
-
-
-"nvim terminal colors
-let g:terminal_color_0 = s:bg_dark.gui
-let g:terminal_color_1 = s:red.gui
-let g:terminal_color_2 = s:green.gui
-let g:terminal_color_3 = s:yellow.gui
-let g:terminal_color_4 = s:blue.gui
-let g:terminal_color_5 = s:purple.gui
-let g:terminal_color_6 = s:cyan.gui
-let g:terminal_color_7 = s:clouds.gui
-let g:terminal_color_8 = s:bg_subtle.gui
-let g:terminal_color_9 = s:dark_red.gui
-let g:terminal_color_10 = s:dark_green.gui
-let g:terminal_color_11 = s:dark_yellow.gui
-let g:terminal_color_12 = s:dark_blue.gui
-let g:terminal_color_13 = s:dark_purple.gui
-let g:terminal_color_14 = s:dark_cyan.gui
-let g:terminal_color_15 = s:dark_clouds.gui

@@ -64,11 +64,6 @@ let s:head_a         = s:dark_blue
 let s:head_b         = s:blue
 let s:head_c         = s:dark_cyan
 
-" shamelessly stolen from hemisu: https://github.com/noahfrederick/vim-hemisu/
-function! s:h(group, style)
-  " Not all terminals support italics properly. If yours does, opt-in.
-  unlet a:style.cterm
-
 " Using termcolor = 256
 let l:ctermfg = (has_key(a:style, "fg") ? a:style.fg.cterm : "NONE")
 let l:ctermbg = (has_key(a:style, "bg") ? a:style.bg.cterm : "NONE")

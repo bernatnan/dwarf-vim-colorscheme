@@ -4,7 +4,7 @@
 
 To enable this color scheme, set it in your vimrc:
 ```
-colorscheme challenger_deep
+colorscheme vim-dwarf-colorscheme
 ```
 
 ### Terminal True Color Support ###
@@ -19,11 +19,11 @@ endif
 
 #### vim-plug ###
 ```
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'bernatnan/vim-dwarf-colorscheme',
 ```
 #### vundle ###
 ```
-Plugin 'challenger-deep-theme/vim', {'name': 'challenger-deep-theme'}
+Plugin 'bernatnan/vim-dwarf-colorscheme',
 ```
 
 ### Screenshot ###
@@ -31,7 +31,7 @@ Plugin 'challenger-deep-theme/vim', {'name': 'challenger-deep-theme'}
 ![Screenshot](https://challenger-deep-theme.github.io/images/screenshots/vim.png)
 
 ### Options ###
-  * **g:challenger_deep_termcolors**
+  * **g:vim-dwarf-colorscheme_termcolors**
     This options sets the terminal colors to 16 or 256 Colors. Default value is 256.
     If it is set to 16 ,this colorscheme will attempt to use the standard 16 colors of your terminal emulator and background color will be the default background color of your terminal emulator.
     For the best colors in terminal, its recommended to set set your terminalcolors to [Challenger Deep Terminal Colors](#challenger-deep-terminal-colors) and use 16 colors.
@@ -85,5 +85,5 @@ Challenger Deep supports [lightline.vim](https://github.com/itchyny/lightline.vi
 add one of the following lines to your `.vimrc`:
 
 ``` viml
-let g:lightline = { 'colorscheme': 'challenger_deep'}
+let g:lightline = { 'colorscheme': 'vim-dwarf-colorscheme'}
 ```

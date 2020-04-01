@@ -14,16 +14,6 @@ endif
 let g:colors_name='dwarf-vim-colorscheme'
 set background=dark
 
-
-if ! exists("g:dwarf-vim-colorscheme_termcolors")
-  let g:dwarf-vim-colorscheme_termcolors = 256
-endif
-
-" not all terminals support italics properly.  If yours does, opt-in.
-if ! exists("g:dwarf-vim-colorscheme_terminal_italics")
-  let g:dwarf-vim-colorscheme_terminal_italics = 0
-endif
-
 " Colors
 let s:black           = { "gui": "#212121", "cterm": "0", "cterm16" : "8" }
 let s:medium_gray     = { "gui": "#767676", "cterm": "243", "cterm16" : "243" }
@@ -77,16 +67,11 @@ let s:head_c         = s:dark_cyan
 " shamelessly stolen from hemisu: https://github.com/noahfrederick/vim-hemisu/
 function! s:h(group, style)
   " Not all terminals support italics properly. If yours does, opt-in.
-  if g:dwarf-vim-colorscheme_terminal_italics == 0 && has_key(a:style, "cterm") && a:style["cterm"] == "italic"
-    unlet a:style.cterm
-  endif
-  if g:dwarf-vim-colorscheme_termcolors == 16
-    let l:ctermfg = (has_key(a:style, "fg") ? a:style.fg.cterm16 : "NONE")
-    let l:ctermbg = (has_key(a:style, "bg") ? a:style.bg.cterm16 : "NONE")
-  else
-    let l:ctermfg = (has_key(a:style, "fg") ? a:style.fg.cterm : "NONE")
-    let l:ctermbg = (has_key(a:style, "bg") ? a:style.bg.cterm : "NONE")
-  end
+  unlet a:style.cterm
+
+" Using termcolor = 256
+let l:ctermfg = (has_key(a:style, "fg") ? a:style.fg.cterm : "NONE")
+let l:ctermbg = (has_key(a:style, "bg") ? a:style.bg.cterm : "NONE")
   execute "highlight" a:group
     \ "guifg="   (has_key(a:style, "fg")    ? a:style.fg.gui   : "NONE")
     \ "guibg="   (has_key(a:style, "bg")    ? a:style.bg.gui   : "NONE")

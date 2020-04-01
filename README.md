@@ -30,12 +30,10 @@ Plugin 'bernatnan/dwarf-vim-colorscheme',
 
 ![Screenshot](https://challenger-deep-theme.github.io/images/screenshots/vim.png)
 
-### Options ###
-  * **g:dwarf-vim-colorscheme_termcolors**
-    This options sets the terminal colors to 16 or 256 Colors. Default value is 256.
-    If it is set to 16 ,this colorscheme will attempt to use the standard 16 colors of your terminal emulator and background color will be the default background color of your terminal emulator.
-    For the best colors in terminal, its recommended to set set your terminalcolors to [Challenger Deep Terminal Colors](#challenger-deep-terminal-colors) and use 16 colors.
-
+### Terminal Color ###
+````
+Terminal color are set to 256.
+````
 
 ### Challenger Deep Terminal Colors ###
 ```

@@ -111,4 +111,4 @@ let s:p.inactive.left   = [ [ s:lfc.dark_asphalt, s:lfc.bg_subtle ], [ s:lfc.dar
 let s:p.inactive.middle = [ [ s:lfc.dark_asphalt, s:lfc.bg_subtle ] ]
 let s:p.inactive.right  = [ [ s:lfc.dark_asphalt, s:lfc.bg_subtle ], [ s:lfc.dark_asphalt, s:lfc.bg_subtle ] ]
 
-let g:lightline#colorscheme#vim-dwarf-colorscheme#palette = lightline#colorscheme#flatten(s:p)
+let g:lightline#colorscheme#dwarf-vim-colorscheme#palette = lightline#colorscheme#flatten(s:p)

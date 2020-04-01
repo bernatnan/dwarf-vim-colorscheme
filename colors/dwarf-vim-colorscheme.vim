@@ -1,5 +1,5 @@
 " Vim Color File
-" Name:       vim-dwarf-colorscheme.vim
+" Name:       dwarf-vim-colorscheme.vim
 " Version:    2.0
 " Maintainer: github.com/MaxSt
 " License:    The MIT License (MIT)
@@ -11,17 +11,17 @@ if exists('syntax on')
     syntax reset
 endif
 
-let g:colors_name='vim-dwarf-colorscheme'
+let g:colors_name='dwarf-vim-colorscheme'
 set background=dark
 
 
-if ! exists("g:vim-dwarf-colorscheme_termcolors")
-  let g:vim-dwarf-colorscheme_termcolors = 256
+if ! exists("g:dwarf-vim-colorscheme_termcolors")
+  let g:dwarf-vim-colorscheme_termcolors = 256
 endif
 
 " not all terminals support italics properly.  If yours does, opt-in.
-if ! exists("g:vim-dwarf-colorscheme_terminal_italics")
-  let g:vim-dwarf-colorscheme_terminal_italics = 0
+if ! exists("g:dwarf-vim-colorscheme_terminal_italics")
+  let g:dwarf-vim-colorscheme_terminal_italics = 0
 endif
 
 " Colors
@@ -77,10 +77,10 @@ let s:head_c         = s:dark_cyan
 " shamelessly stolen from hemisu: https://github.com/noahfrederick/vim-hemisu/
 function! s:h(group, style)
   " Not all terminals support italics properly. If yours does, opt-in.
-  if g:vim-dwarf-colorscheme_terminal_italics == 0 && has_key(a:style, "cterm") && a:style["cterm"] == "italic"
+  if g:dwarf-vim-colorscheme_terminal_italics == 0 && has_key(a:style, "cterm") && a:style["cterm"] == "italic"
     unlet a:style.cterm
   endif
-  if g:vim-dwarf-colorscheme_termcolors == 16
+  if g:dwarf-vim-colorscheme_termcolors == 16
     let l:ctermfg = (has_key(a:style, "fg") ? a:style.fg.cterm16 : "NONE")
     let l:ctermbg = (has_key(a:style, "bg") ? a:style.bg.cterm16 : "NONE")
   else
